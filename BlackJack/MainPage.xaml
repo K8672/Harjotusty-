@@ -7,7 +7,59 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Grid Background="White">
+        <StackPanel BorderBrush="Black" Width="300" Background="#FF252525" Margin="490,160,490,136">
+            <TextBlock x:Name="BlackjackBlock"
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                Margin="35,30"
+                Height="136" Width="230" RenderTransformOrigin="0.5,0.5" 
+                FontSize="50" FontFamily="Snap ITC" FontStyle="Italic"  
+                TextAlignment="Center" 
+                >
+                <TextBlock.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF175F17" Offset="0"/>
+                        <GradientStop Color="Gold" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBlock.Foreground>
+                <Run Text="Musta"/>
+                <LineBreak/>
+                <Run Text="Jaakko"/>
+            </TextBlock>
+            
+            <Button x:Name="PlayButton" Content="Play"
+                Margin="0,0,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" 
+                Height="90" Width="230" RenderTransformOrigin="0.5,0.5" 
+                FontSize="50" FontFamily="Snap ITC" FontStyle="Italic" 
+                Foreground="#FF175F17" 
+                BorderBrush="Black" BorderThickness="6" Click="PlayButton_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Gold"/>
+                        <GradientStop Color="#FFF9E397" Offset="0.5"/>
+                        <GradientStop Color="Gold" Offset="0.996"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            
+            <Button x:Name="ExitButton" Content="Exit"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" 
+                Margin="0,15"
+                Height="90" Width="230" RenderTransformOrigin="0.522,0.478" 
+                FontSize="50" FontFamily="Snap ITC" FontStyle="Italic" 
+                Foreground="#FF175F17" 
+                BorderBrush="Black" BorderThickness="6" Click="ExitButton_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Gold"/>
+                        <GradientStop Color="#FFF9E397" Offset="0.5"/>
+                        <GradientStop Color="Gold" Offset="0.996"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>
