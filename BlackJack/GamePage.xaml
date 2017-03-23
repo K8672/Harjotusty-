@@ -28,6 +28,6 @@
             </Button.Background>
         </Button>
         <!--<Image Source="Assets/Blackipöytä2.png"
-               Width="1280" Height="720"></Image>-->
+               Width="1280" Height="720"></Image>d-->
     </Grid>
 </Page>
