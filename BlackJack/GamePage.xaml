@@ -7,10 +7,27 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="None" ImageSource="Assets/Blackipöytä2.png"
+                        AlignmentY="Top" AlignmentX="Center"/>
+        </Grid.Background>
         <Button x:Name="MenuButton" Content="Back To Menu"
-                HorizontalAlignment="Center" VerticalAlignment="Center"
-                Click="MenuButton_Click"/>
-
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Click="MenuButton_Click" Margin="30,34,0,0" 
+                Height="55" Width="240" RenderTransformOrigin="0.5,0.5" 
+                FontSize="25" FontFamily="Snap ITC" FontStyle="Italic" 
+                Foreground="#FF175F17" 
+                BorderBrush="Black" BorderThickness="6">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Gold"/>
+                    <GradientStop Color="#FFF9E397" Offset="0.5"/>
+                    <GradientStop Color="Gold" Offset="0.996"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <!--<Image Source="Assets/Blackipöytä2.png"
+               Width="1280" Height="720"></Image>-->
     </Grid>
 </Page>
