@@ -27,6 +27,85 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+        <Button x:Name="hitMeButton" Content="Hit"
+                HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                Click="hitMeButton_Click" Margin="30,34,10,30" 
+                Height="55" Width="240" RenderTransformOrigin="0.5,0.5" 
+                FontSize="25" FontFamily="Snap ITC" FontStyle="Italic" 
+                Foreground="#FF175F17" 
+                BorderBrush="Black" BorderThickness="6">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Gold"/>
+                    <GradientStop Color="#FFF9E397" Offset="0.5"/>
+                    <GradientStop Color="Gold" Offset="0.996"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="standButton" Content="Stand"
+                HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                Click="standButton_Click_1" Margin="300,34,10,30" 
+                Height="55" Width="240" RenderTransformOrigin="0.5,0.5" 
+                FontSize="25" FontFamily="Snap ITC" FontStyle="Italic" 
+                Foreground="#FF175F17" 
+                BorderBrush="Black" BorderThickness="6">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Gold"/>
+                    <GradientStop Color="#FFF9E397" Offset="0.5"/>
+                    <GradientStop Color="Gold" Offset="0.996"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="startButton" Content="Start"
+                HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                Click="startButton_Click" Margin="570,34,10,30" 
+                Height="55" Width="240" RenderTransformOrigin="0.5,0.5" 
+                FontSize="25" FontFamily="Snap ITC" FontStyle="Italic" 
+                Foreground="#FF175F17" 
+                BorderBrush="Black" BorderThickness="6">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Gold"/>
+                    <GradientStop Color="#FFF9E397" Offset="0.5"/>
+                    <GradientStop Color="Gold" Offset="0.996"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <TextBlock Text="Player Score :"
+                HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                Margin="30,0,0,90" 
+                Height="55" Width="240" RenderTransformOrigin="0.5,0.5" 
+                FontSize="25" FontFamily="Snap ITC" FontStyle="Italic" 
+                Foreground="#FF175F17">
+        </TextBlock>
+        <TextBlock x:Name="playerScore" Text=""
+                HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                Margin="250,0,0,90" 
+                Height="55" Width="240" RenderTransformOrigin="0.5,0.5" 
+                FontSize="25" FontFamily="Snap ITC" FontStyle="Italic" 
+                Foreground="#FF175F17">
+        </TextBlock>
+        <TextBlock Text="Dealer Score :"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="30,110,0,90" 
+                Height="55" Width="240" RenderTransformOrigin="0.5,0.5" 
+                FontSize="25" FontFamily="Snap ITC" FontStyle="Italic" 
+                Foreground="#FF175F17">
+        </TextBlock>
+        <TextBlock x:Name="dealerScore" Text=""
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="250,110,0,90" 
+                Height="55" Width="240" RenderTransformOrigin="0.5,0.5" 
+                FontSize="25" FontFamily="Snap ITC" FontStyle="Italic" 
+                Foreground="#FF175F17">
+        </TextBlock>
+        <TextBlock x:Name="resultLabel" Text=""
+                Height="55" Width="240" RenderTransformOrigin="0.5,0.5" 
+                FontSize="25" FontFamily="Snap ITC" FontStyle="Italic" 
+                Foreground="#FF175F17">
+        </TextBlock>
+        
         <!--<Image Source="Assets/Blackipöytä2.png"
                Width="1280" Height="720"></Image>d-->
     </Grid>

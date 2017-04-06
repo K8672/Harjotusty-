@@ -96,12 +96,18 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\Card.cs" />
+    <Compile Include="Common\CardSuit.cs" />
+    <Compile Include="Common\CardValue.cs" />
+    <Compile Include="Common\Deck.cs" />
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GameManager\Manager.cs" />
+    <Compile Include="Players\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +117,73 @@
     <None Include="BlackJack_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\AceClubs.png" />
+    <Content Include="Assets\AceDiamonds.png" />
+    <Content Include="Assets\AceHearts.png" />
+    <Content Include="Assets\AceSpades.png" />
+    <Content Include="Assets\b1fh.png" />
+    <Content Include="Assets\b1fv.png" />
+    <Content Include="Assets\b1pb.png" />
+    <Content Include="Assets\b1pl.png" />
+    <Content Include="Assets\b1pr.png" />
+    <Content Include="Assets\b1pt.png" />
+    <Content Include="Assets\b2fh.png" />
+    <Content Include="Assets\b2fv.png" />
+    <Content Include="Assets\b2pb.png" />
+    <Content Include="Assets\b2pl.png" />
+    <Content Include="Assets\b2pr.png" />
+    <Content Include="Assets\b2pt.png" />
+    <Content Include="Assets\DeuceClubs.png" />
+    <Content Include="Assets\DeuceDiamonds.png" />
+    <Content Include="Assets\DeuceHearts.png" />
+    <Content Include="Assets\DeuceSpades.png" />
+    <Content Include="Assets\ec.png" />
+    <Content Include="Assets\EightClubs.png" />
+    <Content Include="Assets\EightDiamonds.png" />
+    <Content Include="Assets\EightHearts.png" />
+    <Content Include="Assets\EightSpades.png" />
+    <Content Include="Assets\FiveClubs.png" />
+    <Content Include="Assets\FiveDiamonds.png" />
+    <Content Include="Assets\FiveHearts.png" />
+    <Content Include="Assets\FiveSpades.png" />
+    <Content Include="Assets\FourClubs.png" />
+    <Content Include="Assets\FourDiamonds.png" />
+    <Content Include="Assets\FourHearts.png" />
+    <Content Include="Assets\FourSpades.png" />
+    <Content Include="Assets\JackClubs.png" />
+    <Content Include="Assets\JackDiamonds.png" />
+    <Content Include="Assets\JackHearts.png" />
+    <Content Include="Assets\JackSpades.png" />
+    <Content Include="Assets\jb.png" />
+    <Content Include="Assets\jr.png" />
+    <Content Include="Assets\KingClubs.png" />
+    <Content Include="Assets\KingDiamonds.png" />
+    <Content Include="Assets\KingHearts.png" />
+    <Content Include="Assets\KingSpades.png" />
+    <Content Include="Assets\NineClubs.png" />
+    <Content Include="Assets\NineDiamonds.png" />
+    <Content Include="Assets\NineHearts.png" />
+    <Content Include="Assets\NineSpades.png" />
+    <Content Include="Assets\QueenClubs.png" />
+    <Content Include="Assets\QueenDiamonds.png" />
+    <Content Include="Assets\QueenHearts.png" />
+    <Content Include="Assets\QueenSpades.png" />
+    <Content Include="Assets\SevenClubs.png" />
+    <Content Include="Assets\SevenDiamonds.png" />
+    <Content Include="Assets\SevenHearts.png" />
+    <Content Include="Assets\SevenSpades.png" />
+    <Content Include="Assets\SixClubs.png" />
+    <Content Include="Assets\SixDiamonds.png" />
+    <Content Include="Assets\SixHearts.png" />
+    <Content Include="Assets\SixSpades.png" />
+    <Content Include="Assets\TenClubs.png" />
+    <Content Include="Assets\TenDiamonds.png" />
+    <Content Include="Assets\TenHearts.png" />
+    <Content Include="Assets\TenSpades.png" />
+    <Content Include="Assets\ThreeClubs.png" />
+    <Content Include="Assets\ThreeDiamonds.png" />
+    <Content Include="Assets\ThreeHearts.png" />
+    <Content Include="Assets\ThreeSpades.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
