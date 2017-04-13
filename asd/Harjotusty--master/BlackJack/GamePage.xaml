@@ -80,7 +80,6 @@
                 FontSize="25" FontFamily="Snap ITC" FontStyle="Italic" 
                 Foreground="Gold">
         </TextBlock>
-        
         <TextBlock x:Name="playerScore" Text=""
                 HorizontalAlignment="Left" VerticalAlignment="Bottom"
                 Margin="250,0,0,90" 
