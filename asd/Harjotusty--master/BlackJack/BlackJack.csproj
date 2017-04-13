@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{937019F7-08B2-4E0D-B529-6A8035FE4A9C}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BlackJack</RootNamespace>
+    <AssemblyName>BlackJack</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>BlackJack_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Card.cs" />
+    <Compile Include="Common\CardSuit.cs" />
+    <Compile Include="Common\CardValue.cs" />
+    <Compile Include="Common\Deck.cs" />
+    <Compile Include="GamePage.xaml.cs">
+      <DependentUpon>GamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameManager\Manager.cs" />
+    <Compile Include="Players\Player.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="BlackJack_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\AceClubs.png" />
+    <Content Include="Assets\AceDiamonds.png" />
+    <Content Include="Assets\AceHearts.png" />
+    <Content Include="Assets\AceSpades.png" />
+    <Content Include="Assets\b1fh.png" />
+    <Content Include="Assets\b1fv.png" />
+    <Content Include="Assets\b1pb.png" />
+    <Content Include="Assets\b1pl.png" />
+    <Content Include="Assets\b1pr.png" />
+    <Content Include="Assets\b1pt.png" />
+    <Content Include="Assets\b2fh.png" />
+    <Content Include="Assets\b2fv.png" />
+    <Content Include="Assets\b2pb.png" />
+    <Content Include="Assets\b2pl.png" />
+    <Content Include="Assets\b2pr.png" />
+    <Content Include="Assets\b2pt.png" />
+    <Content Include="Assets\Blackipöytä2.png" />
+    <Content Include="Assets\DeuceClubs.png" />
+    <Content Include="Assets\DeuceDiamonds.png" />
+    <Content Include="Assets\DeuceHearts.png" />
+    <Content Include="Assets\DeuceSpades.png" />
+    <Content Include="Assets\ec.png" />
+    <Content Include="Assets\EightClubs.png" />
+    <Content Include="Assets\EightDiamonds.png" />
+    <Content Include="Assets\EightHearts.png" />
+    <Content Include="Assets\EightSpades.png" />
+    <Content Include="Assets\FiveClubs.png" />
+    <Content Include="Assets\FiveDiamonds.png" />
+    <Content Include="Assets\FiveHearts.png" />
+    <Content Include="Assets\FiveSpades.png" />
+    <Content Include="Assets\FourClubs.png" />
+    <Content Include="Assets\FourDiamonds.png" />
+    <Content Include="Assets\FourHearts.png" />
+    <Content Include="Assets\FourSpades.png" />
+    <Content Include="Assets\JackClubs.png" />
+    <Content Include="Assets\JackDiamonds.png" />
+    <Content Include="Assets\JackHearts.png" />
+    <Content Include="Assets\JackSpades.png" />
+    <Content Include="Assets\jb.png" />
+    <Content Include="Assets\jr.png" />
+    <Content Include="Assets\KingClubs.png" />
+    <Content Include="Assets\KingDiamonds.png" />
+    <Content Include="Assets\KingHearts.png" />
+    <Content Include="Assets\KingSpades.png" />
+    <Content Include="Assets\NineClubs.png" />
+    <Content Include="Assets\NineDiamonds.png" />
+    <Content Include="Assets\NineHearts.png" />
+    <Content Include="Assets\NineSpades.png" />
+    <Content Include="Assets\QueenClubs.png" />
+    <Content Include="Assets\QueenDiamonds.png" />
+    <Content Include="Assets\QueenHearts.png" />
+    <Content Include="Assets\QueenSpades.png" />
+    <Content Include="Assets\SevenClubs.png" />
+    <Content Include="Assets\SevenDiamonds.png" />
+    <Content Include="Assets\SevenHearts.png" />
+    <Content Include="Assets\SevenSpades.png" />
+    <Content Include="Assets\SixClubs.png" />
+    <Content Include="Assets\SixDiamonds.png" />
+    <Content Include="Assets\SixHearts.png" />
+    <Content Include="Assets\SixSpades.png" />
+    <Content Include="Assets\TenClubs.png" />
+    <Content Include="Assets\TenDiamonds.png" />
+    <Content Include="Assets\TenHearts.png" />
+    <Content Include="Assets\TenSpades.png" />
+    <Content Include="Assets\ThreeClubs.png" />
+    <Content Include="Assets\ThreeDiamonds.png" />
+    <Content Include="Assets\ThreeHearts.png" />
+    <Content Include="Assets\ThreeSpades.png" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="GamePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
