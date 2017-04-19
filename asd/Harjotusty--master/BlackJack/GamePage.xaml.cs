@@ -57,11 +57,11 @@ namespace BlackJack
             Image newCard = new Image();
             newCard.Source = new BitmapImage(new Uri("ms-appx:///Assets/" + card.Value + card.Suit + ".png"));
             newCard.Height = 200;
-            Debug.WriteLine(playerCardXPos);
-            newCard.Margin = new Thickness(playerCardXPos, 450, 1000, 0);//new (playerCardXPos, 180)
+            //Debug.WriteLine(playerCardXPos);
+            //newCard.Margin = new Thickness(playerCardXPos,0,0,0);//new (playerCardXPos, 180)
             //newCard.Name = "newCard";
             //newCard.Size = new System.Drawing.Size(72, 99);
-            this.MyGrid.Children.Add(newCard);
+            this.PlayerPanel.Children.Add(newCard);
             //newCard.BringToFront();
             //playerCardsToDisplay.Add(newCard);
             
@@ -70,15 +70,15 @@ namespace BlackJack
         private void DrawDealerCardNotShown(Card card)
         {
 
-            dealerCardXPos -= 300;
+            dealerCardXPos += 300;
             Image blankCard = new Image();
             blankCard.Source = new BitmapImage(new Uri("ms-appx:///Assets/b1fv.png"));
             blankCard.Height = 200;
             //blankCard.Image = blankImage;
-            blankCard.Margin = new Thickness(0, 0, 700, 450);//new System.Drawing.Point(dealerCardXPos, 12);
+            //blankCard.Margin = new Thickness(dealerCardXPos, 0, 0, 0);//new System.Drawing.Point(dealerCardXPos, 12);
             //blankCard.Name = "newCard";
             //blankCard.Size = new System.Drawing.Size(72, 99);
-            this.MyGrid.Children.Add(blankCard);
+            this.DealerPanel.Children.Add(blankCard);
             //blankCard.BringToFront();
             //dealerCards.Add(blankCard);
 
@@ -88,15 +88,16 @@ namespace BlackJack
 
         private void DrawDealer(Card card)
         {
-            dealerCardXPos -= 300;
+            dealerCardXPos += 1;
             Image newCard = new Image();
             newCard.Source = new BitmapImage(new Uri("ms-appx:///Assets/" + card.Value + card.Suit + ".png"));
             newCard.Height = 200;
             //newCard.Image = img;
-            newCard.Margin = new Thickness(dealerCardXPos, 0, 400, 450);//new System.Drawing.Point(dealerCardXPos, 12);
+            
+            //newCard.Margin = new Thickness(dealerCardXPos, 0, 0, 0);//new System.Drawing.Point(dealerCardXPos, 12);
             //newCard.Name = "newCard";
             //newCard.Size = new System.Drawing.Size(72, 99);
-            this.MyGrid.Children.Add(newCard);
+            this.DealerPanel.Children.Add(newCard);
             //dealerCards.Add(newCard);
         }
         private void MenuButton_Click(object sender, RoutedEventArgs e)
@@ -132,6 +133,7 @@ namespace BlackJack
 
         private void standButton_Click(object sender, RoutedEventArgs e)
         {
+            DealerPanel.Children.Clear();
             dealerScore.Text = "Dealer score: " + gm.GetDealerScore();
             dealerCardXPos = dealerStartXPos;
             //RemoveCards(dealerCards);
@@ -149,16 +151,22 @@ namespace BlackJack
             if (gm.GetDealerScore() > player.GetScore() && gm.GetDealerScore() < 22)
             {
                 resultLabel.Text = "Dealer wins!";
+                hitMeButton.IsEnabled = false;
+                standButton.IsEnabled = false;
             }
             else
             {
                 resultLabel.Text = "Player wins!";
+                hitMeButton.IsEnabled = false;
+                standButton.IsEnabled = false;
             }
 
         }
 
         private void startButton_Click(object sender, RoutedEventArgs e)
         {
+            DealerPanel.Children.Clear();
+            PlayerPanel.Children.Clear();
             resultLabel.Text = "";
             hitMeButton.IsEnabled = true;
             standButton.IsEnabled = true;
@@ -178,14 +186,15 @@ namespace BlackJack
            /*if (playerCards[0].Value == playerCards[1].Value)
             {
                 splitButton.Enabled = true;
-            }
+            }*/
             if (player.GetScore() == 21)
             {
                 resultLabel.Text = "Blackjack! Player wins!";
-                hitMeButton.Enabled = false;
-                standButton.Enabled = false;
-            }*/
+                hitMeButton.IsEnabled = false;
+                standButton.IsEnabled = false;
+            }
         }
+        
         /*private void RemoveCards(BitmapImage cardImages)
         {
             foreach (BitmapImage box in cardImages)

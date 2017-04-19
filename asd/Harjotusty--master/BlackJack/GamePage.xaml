@@ -13,6 +13,12 @@
             <ImageBrush Stretch="Fill" ImageSource="Assets/Blackipöytä2.png"
                         AlignmentY="Top" AlignmentX="Center"/>
         </Grid.Background>
+        <StackPanel x:Name="DealerPanel" Height="200" Orientation="Horizontal"
+                       HorizontalAlignment="Stretch" VerticalAlignment="Top"             
+                       Margin="40,150,0,0"/>
+        <StackPanel x:Name="PlayerPanel" Height="200" Orientation="Horizontal"
+                       HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+                       Margin="40,0,270,145"/>
         <Button x:Name="MenuButton" Content="Back To Menu"
                 HorizontalAlignment="Left" VerticalAlignment="Top"
                 Click="MenuButton_Click" Margin="30,34,0,0" 

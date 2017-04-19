@@ -94,6 +94,10 @@ namespace BlackJack.GameManager
                 }
                 score += cardValue;
             }
+            /*if (score < 22)
+            {
+                cardValue.Ace = 11;
+            }*/
 
             if (score > 21)
             {
