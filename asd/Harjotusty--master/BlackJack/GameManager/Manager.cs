@@ -88,16 +88,22 @@ namespace BlackJack.GameManager
             for (int i = 0; i < cards.Count; i++)
             {
                 int cardValue = (int)cards[i].Value;
+
+                if (cardValue == 1 && score < 22)
+                {
+                    cardValue = 11;
+                }
+
                 if (cardValue > 10)
                 {
                     cardValue = 10;
                 }
+                // jos ässä ja score > 21 -> ässä on 11?
                 score += cardValue;
+
+
+
             }
-            /*if (score < 22)
-            {
-                cardValue.Ace = 11;
-            }*/
 
             if (score > 21)
             {

@@ -51,6 +51,10 @@ namespace BlackJack.Players
             {
                 if ((int)hand[i].Value < 10)
                 {
+                    if ((int)hand[i].Value == 1)
+                    {
+                        myScore += 10;
+                    }
                     myScore += (int)hand[i].Value;
                 }
                 else
@@ -64,6 +68,28 @@ namespace BlackJack.Players
                 return 21;
             }
 
+            if (myScore > 21)
+            {
+                if ((int)hand[0].Value == 1)
+                {
+                    myScore -= 10;
+                }
+            }
+            if (myScore > 21)
+            {
+                if ((int)hand[1].Value == 1)
+                {
+                    myScore -= 10;
+                }
+            }
+            if (myScore > 21)
+            {
+
+                if ((int)hand[2].Value == 1)
+                {
+                    myScore -= 10;
+                }
+            }
             if (myScore > 21)
             {
                 Busted = true;

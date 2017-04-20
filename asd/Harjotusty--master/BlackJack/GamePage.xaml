@@ -123,7 +123,7 @@
         </TextBlock>
         <TextBlock x:Name="resultLabel" Text="" VerticalAlignment="Center"
                    HorizontalAlignment="Center" TextAlignment="Center"
-                   Height="100" Width="500" RenderTransformOrigin="0.5,0.5" 
+                   Height="100" Width="900" RenderTransformOrigin="0.5,0.5" 
                    FontSize="50" FontFamily="Snap ITC" FontStyle="Italic" 
                    Foreground="Gold">
         </TextBlock>
