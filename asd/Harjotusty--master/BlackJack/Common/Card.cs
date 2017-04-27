@@ -8,6 +8,7 @@ namespace BlackJack.Common
 {
     public struct Card
     {
+        // Luodaan kortti muutaja, johon tuodaan CardSuit ja CardValue.
         private CardSuit suit;
         private CardValue value;
 

@@ -9,16 +9,17 @@ namespace BlackJack.Players
 {
     public class Player
     {
+        //Luodaan pelaaja
         private List<Card> hand = new List<Card>();
         private int myScore;
 
         public bool Busted { get; set; }
-
+        
         public Player()
         {
             Busted = false;
         }
-
+        //jakaa pelaajalle kortin
         public void HitMe(Card dealtCard)
         {
             hand.Add(dealtCard);
@@ -43,7 +44,7 @@ namespace BlackJack.Players
             }
             return handString.ToString();
         }
-
+        //Hakee käden arvon
         public int GetScore()
         {
             myScore = 0;
@@ -51,6 +52,7 @@ namespace BlackJack.Players
             {
                 if ((int)hand[i].Value < 10)
                 {
+                    //jos kädessä on ässä laittaa sen arvoksi 11
                     if ((int)hand[i].Value == 1)
                     {
                         myScore += 10;
@@ -62,34 +64,24 @@ namespace BlackJack.Players
                     myScore += 10;
                 }
             }
-
+            //Blackjack palauttaa 21
             if (hand.Count == 2 && ((hand[0].Value == CardValue.Ace && (int)hand[1].Value >= 10) || (hand[1].Value == CardValue.Ace && (int)hand[0].Value >= 10)))
             {
                 return 21;
             }
+            //jos score yli 21 mutta kädessä on ässä muutta sen arvoksi 1
+            if (myScore > 21)
+            {
+                for (int i = 0; i < hand.Count; i++)
+                {
 
-            if (myScore > 21)
-            {
-                if ((int)hand[0].Value == 1)
-                {
-                    myScore -= 10;
+                    if ((int)hand[i].Value == 1)
+                    {
+                        myScore -= 10;
+                    }
                 }
             }
-            if (myScore > 21)
-            {
-                if ((int)hand[1].Value == 1)
-                {
-                    myScore -= 10;
-                }
-            }
-            if (myScore > 21)
-            {
-
-                if ((int)hand[2].Value == 1)
-                {
-                    myScore -= 10;
-                }
-            }
+            //jos score yli 21 = häviö
             if (myScore > 21)
             {
                 Busted = true;
@@ -97,7 +89,7 @@ namespace BlackJack.Players
 
             return myScore;
         }
-
+        //Luovutus (ei käytössä)
         public void ThrowCards()
         {
             hand.Clear();

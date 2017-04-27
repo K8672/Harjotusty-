@@ -22,19 +22,15 @@ using System.Diagnostics;
 
 namespace BlackJack
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public partial class GamePage : Page
     {
+        //pelin koodi
         public Player player;
         public Manager gm;
         private static int startXPos = 0;
         private static int dealerStartXPos = 0;
         private int playerCardXPos = startXPos;
         private int dealerCardXPos = dealerStartXPos;
-        //public List<PictureBox> playerCardsToDisplay;
-        //public List<PictureBox> dealerCards;
 
         public GamePage()
         {
@@ -42,64 +38,38 @@ namespace BlackJack
             gm = new Manager();
             player = new Player();
             gm.AddPlayer(player);
-            //playerCardsToDisplay = new List<PictureBox>();
-            //dealerCards = new List<PictureBox>();
-
-            //DrawDealerCardNotShown1.Source = new BitmapImage(new Uri("ms-appx:///Assets/b1fv.png"));
-
-            //splitButton.Hide();
+            hitMeButton.IsEnabled = false;
+            standButton.IsEnabled = false;
         }
 
-
+        //Pelaaja nostaa kortin
         private void DrawPlayerCard(Card card)
         {
-            playerCardXPos += 300;
             Image newCard = new Image();
             newCard.Source = new BitmapImage(new Uri("ms-appx:///Assets/" + card.Value + card.Suit + ".png"));
             newCard.Height = 200;
-            //Debug.WriteLine(playerCardXPos);
-            //newCard.Margin = new Thickness(playerCardXPos,0,0,0);//new (playerCardXPos, 180)
-            //newCard.Name = "newCard";
-            //newCard.Size = new System.Drawing.Size(72, 99);
             this.PlayerPanel.Children.Add(newCard);
-            //newCard.BringToFront();
-            //playerCardsToDisplay.Add(newCard);
-            
         }
-
+        //jakajan piilotettu kortti
         private void DrawDealerCardNotShown(Card card)
         {
-
-            dealerCardXPos += 300;
             Image blankCard = new Image();
             blankCard.Source = new BitmapImage(new Uri("ms-appx:///Assets/b1fv.png"));
-            blankCard.Height = 200;
-            //blankCard.Image = blankImage;
-            //blankCard.Margin = new Thickness(dealerCardXPos, 0, 0, 0);//new System.Drawing.Point(dealerCardXPos, 12);
-            //blankCard.Name = "newCard";
-            //blankCard.Size = new System.Drawing.Size(72, 99);
+            blankCard.Height = 200;            
             this.DealerPanel.Children.Add(blankCard);
-            //blankCard.BringToFront();
-            //dealerCards.Add(blankCard);
 
             DrawDealer(card);
 
         }
-
+        //jakajan näkyvät kortit
         private void DrawDealer(Card card)
-        {
-            dealerCardXPos += 1;
+        {           
             Image newCard = new Image();
             newCard.Source = new BitmapImage(new Uri("ms-appx:///Assets/" + card.Value + card.Suit + ".png"));
             newCard.Height = 200;
-            //newCard.Image = img;
-            
-            //newCard.Margin = new Thickness(dealerCardXPos, 0, 0, 0);//new System.Drawing.Point(dealerCardXPos, 12);
-            //newCard.Name = "newCard";
-            //newCard.Size = new System.Drawing.Size(72, 99);
             this.DealerPanel.Children.Add(newCard);
-            //dealerCards.Add(newCard);
         }
+        //palautuu takaisin päävalikkoon
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
             // get root frame
@@ -112,7 +82,7 @@ namespace BlackJack
                 rootFrame.GoBack();
             }
         }
-
+        //jakaa kortin pelaajalle
         private void hitMeButton_Click(object sender, RoutedEventArgs e)
         {
             if (!player.Busted)
@@ -120,7 +90,7 @@ namespace BlackJack
                 player.HitMe(gm.DealCard());
                 playerScore.Text = "Score: " + player.GetScore();
                 DrawPlayerCard(player.LastCard());
-
+                //laittaa hit ja stand nappulat pois käytöstä jos häviää
                 if (player.Busted)
                 {
                     hitMeButton.IsEnabled = false;
@@ -130,17 +100,17 @@ namespace BlackJack
                 }
             }
         }
-
+        //Lopettaa korttien noston
         private void standButton_Click(object sender, RoutedEventArgs e)
         {
+            //tyhjentää jakajan stackpaneelin, että siihen ei jää korttia väärinpäin.
             DealerPanel.Children.Clear();
             dealerScore.Text = "Dealer score: " + gm.GetDealerScore();
-            dealerCardXPos = dealerStartXPos;
-            //RemoveCards(dealerCards);
-            //DrawDealerCardNotShown.IsEnabled = false;
+            //dealerCardXPos = dealerStartXPos;
             DrawDealer(gm.getDealerCards()[1]);
             DrawDealer(gm.getDealerCards()[0]);
             
+            //jakaja joutuu nostamaan kortteja 17 asti
             while (gm.GetDealerScore() < 17)
             {               
                 gm.GiveDealerACard();
@@ -148,6 +118,7 @@ namespace BlackJack
                 DrawDealer(gm.DealerLastCard);
             }
 
+            //jos jakajan score > pelaajan ja alle 22 jakaja voittaa. Samalla poistaa hit ja stand buttonin käytöstä.
             if (gm.GetDealerScore() > player.GetScore() && gm.GetDealerScore() < 22)
             {
                 resultLabel.Text = "Dealer wins!";
@@ -162,19 +133,19 @@ namespace BlackJack
             }
 
         }
-
+        //aloittaa pelin
         private void startButton_Click(object sender, RoutedEventArgs e)
         {
+            //Tyhjentää molemmat stackpaneelit ennen pelin alkua.
             DealerPanel.Children.Clear();
             PlayerPanel.Children.Clear();
             resultLabel.Text = "";
+            //aktivoi hit ja stand buttonit
             hitMeButton.IsEnabled = true;
             standButton.IsEnabled = true;
-            //RemoveCards(playerCardsToDisplay);
-            //RemoveCards(dealerCards);
 
-            dealerCardXPos = dealerStartXPos;
-            playerCardXPos = startXPos;
+            //dealerCardXPos = dealerStartXPos;
+            //playerCardXPos = startXPos;
             List<Card> playerCards = player.ShowHand();
             gm.StartNewDeal();
             playerScore.Text = "Score: " + player.GetScore();
@@ -183,10 +154,7 @@ namespace BlackJack
             DrawPlayerCard(playerCards[1]);
             DrawDealerCardNotShown(gm.DealerVisibleCard);
 
-           /*if (playerCards[0].Value == playerCards[1].Value)
-            {
-                splitButton.Enabled = true;
-            }*/
+            //Blackjack
             if (player.GetScore() == 21)
             {
                 resultLabel.Text = "Blackjack! Player wins!";
@@ -195,12 +163,6 @@ namespace BlackJack
             }
         }
         
-        /*private void RemoveCards(BitmapImage cardImages)
-        {
-            foreach (BitmapImage box in cardImages)
-            {
-                this.MyGrid.Children.Remove(box);
-            }
-        }*/
+     
     }
 }

@@ -10,6 +10,7 @@ namespace BlackJack.GameManager
 {
         public class Manager
     {
+        //Luodaan Manager oli jakaja
         private Deck playingDeck = new Deck();
         private List<Player> players = new List<Player>();
         private List<int> playerScores = new List<int>();
@@ -51,7 +52,7 @@ namespace BlackJack.GameManager
         {
             players.Add(newPlayer);
         }
-
+        //jakaja nostaa kaksi korttia
         public void DealFirstTwoCards()
         {
             playingDeck.Shuffle();
@@ -65,12 +66,12 @@ namespace BlackJack.GameManager
                 players[i].HitMe(playingDeck.DealCard());
             }
         }
-
+        //jakaa kortin
         public Card DealCard()
         {
             return playingDeck.DealCard();
         }
-
+        //uusi peli
         public void StartNewDeal()
         {
             playingDeck = new Deck();
@@ -81,24 +82,24 @@ namespace BlackJack.GameManager
             }
             DealFirstTwoCards();
         }
-
+        //Laskee käden arvon
         private int GetHandScore(List<Card> cards)
         {
             int score = 0;
             for (int i = 0; i < cards.Count; i++)
             {
                 int cardValue = (int)cards[i].Value;
-
+                //ässän arvon 11 jos score alle 22
                 if (cardValue == 1 && score < 22)
                 {
                     cardValue = 11;
                 }
-
+                //laittaa kuvakortit kympeiksi
                 if (cardValue > 10)
                 {
                     cardValue = 10;
                 }
-                // jos ässä ja score > 21 -> ässä on 11?
+                
                 score += cardValue;
 
 
@@ -110,7 +111,7 @@ namespace BlackJack.GameManager
                 score = -1;
             }
 
-            //Blackjack returns 0
+            //Blackjack palauttaa 0
             if (cards.Count == 2 && ((cards[0].Value == CardValue.Ace && (int)cards[1].Value >= 10) || (cards[1].Value == CardValue.Ace && (int)cards[0].Value >= 10)))
             {
                 return 0;
@@ -118,7 +119,7 @@ namespace BlackJack.GameManager
 
             return score;
         }
-
+        
         public string DisplayScores()
         {
             StringBuilder showScores = new StringBuilder();
@@ -128,12 +129,12 @@ namespace BlackJack.GameManager
             }
             return showScores.ToString();
         }
-
+        //Antaa jakajalle kortin
         public void GiveDealerACard()
         {
             dealer.HitMe(playingDeck.DealCard());
         }
-
+        //Hakee jakajan scoren
         public int GetDealerScore()
         {
             return dealer.GetScore();

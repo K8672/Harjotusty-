@@ -8,6 +8,7 @@ namespace BlackJack.Common
 {
     public enum CardSuit
     {
+        //Määrittää korttien maan.
         Spades = 0,
         Diamonds = 1,
         Hearts = 2,

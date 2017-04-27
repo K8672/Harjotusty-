@@ -8,6 +8,7 @@ namespace BlackJack.Common
 {
     public enum CardValue
     {
+        //Määrittää korttien arvon
         Ace = 1,
         Deuce = 2,
         Three = 3,

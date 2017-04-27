@@ -8,6 +8,7 @@ namespace BlackJack.Common
 {
     public class Deck
     {
+        //Luodaan lista Card muuttujista
         Queue<Card> deckOfCards;
 
         List<int> cardsAsInt;
@@ -22,7 +23,7 @@ namespace BlackJack.Common
                 cardsAsInt.Add(i);
             }
         }
-
+        //Luodaan korttien sekoitus muuttuja
         public void Shuffle()
         {
             deckOfCards = new Queue<Card>();
