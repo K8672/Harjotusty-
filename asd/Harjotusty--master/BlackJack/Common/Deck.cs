@@ -8,7 +8,7 @@ namespace BlackJack.Common
 {
     public class Deck
     {
-        //Luodaan lista Card muuttujista
+        //Luodaan pakka
         Queue<Card> deckOfCards;
 
         List<int> cardsAsInt;
